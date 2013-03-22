@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/dkopack/Projects/Globes'
+let g:netrw_dirhist_2='/Users/dkopack/Projects/Globes/app'
+let g:netrw_dirhist_3='/Users/dkopack/Projects/Globes/app/models'
+let g:netrw_dirhist_4='/Users/dkopack/Projects/Globes'
+let g:netrw_dirhist_5='/Users/dkopack/Projects/cardonglobal'
+let g:netrw_dirhist_6='/Users/dkopack/Projects/cardonglobal/wordpress'
