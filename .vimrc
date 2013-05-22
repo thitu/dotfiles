@@ -13,7 +13,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-autocmd FileType java set tabstop=4|set shiftwidth=4
+autocmd FileType ruby set tabstop=2|set shiftwidth=2
 autocmd BufRead,BufNewFile *.ejs set filetype=html
 
 let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Tag':{}, 'TaggedFile':{}}
@@ -22,6 +22,9 @@ let g:FuzzyFinderOptions.File.excluded_path = '\v\~$|\.o$|\.DS_Store$|\.jpg$|\.g
 map ,t :FuzzyFinderFile **/<CR>
 map ,f :FuzzyFinderFile<CR>
 map ,rc :FuzzyFinderRenewCache<CR>
+
+map ,bi :Bundle install<CR>
+map ,dbm :Rake db:migrate<CR>
 
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted

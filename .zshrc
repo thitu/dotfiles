@@ -12,6 +12,7 @@ export EDITOR="/usr/bin/vim"
 export HISTSIZE=2000
 export HISTFILE="$HOME/.zshhistory"
 export SAVEHIST=$HISTSIZE
+export PATH="$(brew --prefix)/bin:$PATH"
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
@@ -89,5 +90,6 @@ elif  [[ $('uname') == 'Darwin' ]]; then
 fi
 alias stt='st .'
 
+alias http='python -m SimpleHTTPServer'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
