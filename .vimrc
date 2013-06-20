@@ -51,3 +51,5 @@ augroup end
 
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
+
+Bundle 'Valloric/YouCompleteMe.git'
