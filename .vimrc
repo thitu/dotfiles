@@ -16,12 +16,19 @@ set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
 autocmd BufRead,BufNewFile *.ejs set filetype=html
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Tag':{}, 'TaggedFile':{}}
 let g:FuzzyFinderOptions.File.excluded_path = '\v\~$|\.o$|\.DS_Store$|\.jpg$|\.gif$|\.png$|\.bak$|\.swp$|\.git$|\.svn$|gen|\.git|\.gradle|build/'
 
-map ,t :FuzzyFinderFile **/<CR>
-map ,f :FuzzyFinderFile<CR>
-map ,rc :FuzzyFinderRenewCache<CR>
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+"map ,t :FuzzyFinderFile **/<CR>
+"map ,f :FuzzyFinderFile<CR>
+"map ,rc :FuzzyFinderRenewCache<CR>
+
+map ,f :CtrlPMixed<CR>
 
 map ,bi :Bundle install<CR>
 map ,dbm :Rake db:migrate<CR>
@@ -53,3 +60,4 @@ set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 
 Bundle 'Valloric/YouCompleteMe.git'
+Bundle 'kien/ctrlp.vim.git'

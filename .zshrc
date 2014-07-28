@@ -50,7 +50,6 @@ vcs_info_wrapper() {
   fi
 }
 RPROMPT=$'$(vcs_info_wrapper)'
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 if [ -e ~/.profile ]; then
   source ~/.profile
@@ -88,8 +87,11 @@ if [[ $('uname') == 'Linux' ]]; then
 elif  [[ $('uname') == 'Darwin' ]]; then
 	alias st='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 fi
+
 alias stt='st .'
-
 alias http='python -m SimpleHTTPServer'
+alias rake='noglob rake'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
