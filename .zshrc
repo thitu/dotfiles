@@ -8,11 +8,12 @@ colors
 #promptinit
 unamestr=$(uname)
 
-export EDITOR="/usr/bin/vim"
+export EDITOR="/usr/local/bin/vim"
 export HISTSIZE=2000
 export HISTFILE="$HOME/.zshhistory"
 export SAVEHIST=$HISTSIZE
 export PATH="$(brew --prefix)/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH:$PATH"
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
@@ -25,7 +26,6 @@ alias reload_zsh="source ~/.zshrc"
 
 # Fix LSCOLORS
 export LSCOLORS=DxGxcxdxCxegedabagacad
-
 
 bindkey -v
 
@@ -50,6 +50,7 @@ vcs_info_wrapper() {
   fi
 }
 RPROMPT=$'$(vcs_info_wrapper)'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 if [ -e ~/.profile ]; then
   source ~/.profile
@@ -79,19 +80,10 @@ alias devlog='tail -f log/development.log'
 alias rdm='rake db:migrate'
 alias rdr='rake db:rollback'
 
-# Sublime Text 2 Aliases
-#unamestr = 'uname'
-
-if [[ $('uname') == 'Linux' ]]; then
-	alias st='/usr/bin/sublime_text&'
-elif  [[ $('uname') == 'Darwin' ]]; then
-	alias st='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-fi
-
 alias stt='st .'
 alias http='python -m SimpleHTTPServer'
 alias rake='noglob rake'
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

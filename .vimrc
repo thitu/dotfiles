@@ -2,8 +2,14 @@ syntax on
 colorscheme jellybeans
 set number
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'OrangeT/vim-csharp.git'
+call vundle#end()
 
 filetype plugin on
 filetype plugin indent on
@@ -15,6 +21,8 @@ set shiftwidth=4
 
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
 autocmd BufRead,BufNewFile *.ejs set filetype=html
+autocmd BufRead,BufNewFile *.jade set filetype=jade
+autocmd BufRead,BufNewFile *.cs set filetype=cs
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
@@ -59,5 +67,3 @@ augroup end
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 
-Bundle 'Valloric/YouCompleteMe.git'
-Bundle 'kien/ctrlp.vim.git'
