@@ -1,28 +1,35 @@
-syntax on
-colorscheme jellybeans
+syntax enable
+
+set background=dark
+colorscheme solarized
+set guifont=Monaco:h12
+
 set number
-
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim.git'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'OrangeT/vim-csharp.git'
-call vundle#end()
-
-filetype plugin on
-filetype plugin indent on
 set smartindent
 set autoindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-fugitive'
+
+filetype on
+filetype plugin on
+filetype plugin indent on
+
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
-autocmd BufRead,BufNewFile *.ejs set filetype=html
-autocmd BufRead,BufNewFile *.jade set filetype=jade
-autocmd BufRead,BufNewFile *.cs set filetype=cs
+autocmd FileType make setlocal noexpandtab
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
@@ -31,10 +38,6 @@ let g:FuzzyFinderOptions.File.excluded_path = '\v\~$|\.o$|\.DS_Store$|\.jpg$|\.g
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-"map ,t :FuzzyFinderFile **/<CR>
-"map ,f :FuzzyFinderFile<CR>
-"map ,rc :FuzzyFinderRenewCache<CR>
 
 map ,f :CtrlPMixed<CR>
 
@@ -57,13 +60,5 @@ noremap ,cf :echo expand("%:p")<CR>
 
 noremap ,nt :NERDTreeToggle<CR>
 
-autocmd FileType make setlocal noexpandtab
-set guifont=Monaco:h12
-
-augroup filetype
-   au! BufRead,BufNewFile *.proto setfiletype proto
-augroup end
-
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
-
